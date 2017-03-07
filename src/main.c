@@ -6,7 +6,6 @@
 // Define the data packets that will flow through the communication module
 // as global variables
 rf_data_packet_t rf_data_packet;
-//decrypted_data_packet_t decrypted_data_packet;
 host_data_packet_t host_data_packet;
 
 
@@ -29,11 +28,8 @@ int main() {
     // Communicate with the RF receiver to obtain the logging data.
     receive_data_packet(&rf_data_packet);
 
-    // Encode the data. Here is the place for some encryption algorithm
-    //decode_data(&rf_data_packet, &decrypted_data_packet);
-	
-	//Prepare the data to be send to the host computer
-	data_conversion(&rf_data_packet, &host_data_packet);
+    // Decode the data. Here is the place for some decryption algorithm
+    decode_data(&rf_data_packet, &host_data_packet);
 	
     // Send data to the RF module to wirelessly transmit the logging data to the host computer.
     send_host_packet(&host_data_packet);
