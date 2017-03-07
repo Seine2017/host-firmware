@@ -1,5 +1,4 @@
-#include "control_interface.h"
-#include "rc_receiver_interface.h"
+
 #include "rf_transceiver_interface.h"
 #include "data_conversion.h"
 #include "data_structures.h"
@@ -16,7 +15,7 @@ int main() {
   host_comms_init();
   rf_receiver_init();
   SPI_init(); //defined by Kiran
-  sei(); // enable interrups
+  //sei(); // enable interrups
 
   // We need to consider timing - at what frequency each communication link
   // operates. We can handle some of the functions in the interrupts.
@@ -36,8 +35,6 @@ int main() {
 	//Prepare the data to be send to the host computer
 	data_conversion(&rf_data_packet, &host_data_packet);
 	
-	
-
     // Send data to the RF module to wirelessly transmit the logging data to the host computer.
     send_host_packet(&host_data_packet);
 
@@ -45,8 +42,3 @@ int main() {
   }
 }
 
-// Execute some of the communication functions within the interrups
-// This is an alternative way for handing the timing
-ISR(TIMER1_???_vect){
-
-}
