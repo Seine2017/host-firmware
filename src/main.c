@@ -13,6 +13,7 @@ host_data_packet_t host_data_packet;
 
 int main() {
   //Initialize all the submodules
+  host_comms_init();
   rf_receiver_init();
   SPI_init(); //defined by Kiran
   sei(); // enable interrups

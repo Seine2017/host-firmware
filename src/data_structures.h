@@ -15,12 +15,44 @@ typedef struct{
 // Define a structure for the data packet to be received from the control module
 // has to be synchorinzed with what is actually send by the control module
 typedef struct{
-
+	union
+	{
+		uint8_t bytes[4];
+		float value;
+	}roll;
+	
+	union
+	{
+		uint8_t bytes[4];
+		float value;
+	}pitch;
+	
+	union
+	{
+		uint8_t bytes[4];
+		float value;
+	}yaw_vel;
 }logg_data_packet_t;
 
 // Define a structure for the data packet to be send to the host microcontroller
 typedef struct{
-
+	union
+	{
+		uint8_t bytes[4];
+		float value;
+	}roll;
+	
+	union
+	{
+		uint8_t bytes[4];
+		float value;
+	}pitch;
+	
+	union
+	{
+		uint8_t bytes[4];
+		float value;
+	}yaw_vel;
 }rf_data_packet_t;
 
 //Define a structure for data encryption
@@ -35,7 +67,9 @@ typedef struct{
 
 //Define a structure to be send to the host microcontroller
 typedef struct{
-	
+	float roll;
+	float pitch;
+	float yaw_vel;
 }host_data_packet_t;
 
 #endif
