@@ -13,8 +13,11 @@ host_data_packet_t host_data_packet;
 
 int main() {
   //Initialize all the submodules
+  init_debug_uart0();
+  //printf("A\n");
   host_comms_init();
   rf_receiver_init();
+   //printf("B\n");
   //SPI_init(); //defined by Kiran
   //sei(); // enable interrups
 
@@ -28,13 +31,16 @@ int main() {
     ////////////////////////////////////////////////////////////////////////////////////////////
     
     // Communicate with the RF receiver to obtain the logging data.
+	 //printf("C\n");
     receive_rf_packet(&rf_data_packet);
+	
+	//printf("pitch: %d, roll: %d, yaw_vel: %d\n", (int)rf_data_packet.pitch.value, (int)rf_data_packet.roll.value, (int)rf_data_packet.yaw_vel.value);
 
     // Decode the data. Here is the place for some decryption algorithm
-    decode_data(&rf_data_packet, &host_data_packet);
+    //decode_data(&rf_data_packet, &host_data_packet);
 	
     // Send data to the RF module to wirelessly transmit the logging data to the host computer.
-    send_host_packet(&host_data_packet);
+    //send_host_packet(&host_data_packet);
 
     /////////////////////////////////////////////////////////////////////////////////////////////
   }
