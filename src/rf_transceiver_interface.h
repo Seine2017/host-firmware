@@ -3,6 +3,8 @@
 #ifndef __RF_TRANSMITTER_INTERFACE_H
 #define __RF_TRANSMITTER_INTERFACE_H
 
+#include "data_structures.h"
+
 // Declare a function to initialize the RF transceiver as a transmitter
 void rf_transmitter_init();
 // Declare a function to initialize the RF transceiver as a receiver
