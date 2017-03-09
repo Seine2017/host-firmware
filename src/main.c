@@ -37,10 +37,10 @@ int main() {
 	//printf("pitch: %d, roll: %d, yaw_vel: %d\n", (int)rf_data_packet.pitch.value, (int)rf_data_packet.roll.value, (int)rf_data_packet.yaw_vel.value);
 
     // Decode the data. Here is the place for some decryption algorithm
-    //decode_data(&rf_data_packet, &host_data_packet);
+    decode_data(&rf_data_packet, &host_data_packet);
 	
     // Send data to the RF module to wirelessly transmit the logging data to the host computer.
-    //send_host_packet(&host_data_packet);
+    send_host_packet(&host_data_packet);
 
     /////////////////////////////////////////////////////////////////////////////////////////////
   }

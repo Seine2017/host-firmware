@@ -86,7 +86,7 @@ void receive_rf_packet(rf_data_packet_t* rf_data_packet)
 	{		
 		rf_data_packet->yaw_vel.bytes[i] = receiveByte();	//Receive yaw velocity.
 		//printf("%d, ", rf_data_packet->yaw_vel.bytes[i]);
-	}printf("pitch: %f, roll: %f, yaw_vel: %f\n", (double)rf_data_packet->pitch.value, (double)rf_data_packet->roll.value, (double)rf_data_packet->yaw_vel.value);
+	}//printf("pitch: %f, roll: %f, yaw_vel: %f\n", (double)rf_data_packet->pitch.value, (double)rf_data_packet->roll.value, (double)rf_data_packet->yaw_vel.value);
 
 	//Reset the FIFO buffer. Need to do this before receiving every packet.
 	FIFO_reset();
