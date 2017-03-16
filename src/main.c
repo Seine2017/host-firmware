@@ -29,20 +29,19 @@ int main() {
 
     ///////////////////////////////////// DOWNLINK COMMUNICATION ///////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     // Communicate with the RF receiver to obtain the logging data.
-	 //printf("C\n");
+   //printf("C\n");
     receive_rf_packet(&rf_data_packet);
-	
-	//printf("pitch: %d, roll: %d, yaw_vel: %d\n", (int)rf_data_packet.pitch.value, (int)rf_data_packet.roll.value, (int)rf_data_packet.yaw_vel.value);
+
+  //printf("pitch: %d, roll: %d, yaw_vel: %d\n", (int)rf_data_packet.pitch.value, (int)rf_data_packet.roll.value, (int)rf_data_packet.yaw_vel.value);
 
     // Decode the data. Here is the place for some decryption algorithm
     decode_data(&rf_data_packet, &host_data_packet);
-	
+
     // Send data to the RF module to wirelessly transmit the logging data to the host computer.
     send_host_packet(&host_data_packet);
 
     /////////////////////////////////////////////////////////////////////////////////////////////
   }
 }
-
